@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Books</title>
+</head>
+<body>
+
+
+<div class="section-wrapper form-bg">
+
+    <form method="POST">
+        <div class="container">
+            {% csrf_token %}
+            {#                fields = ('author', 'title', 'quantity', 'published_date', 'genre')#}
+
+
+              <div class="form-group">
+                <label for="id_title" class="control-label col-sm-2 ">Book Id</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_b_id" name="b_id" placeholder="book id" value="{{ books.b_id }}">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="id_title" class="control-label col-sm-2 ">Author</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_author" name="author" placeholder="author" value="{{ books.author }}">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_title" class="control-label col-sm-2 ">Title</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_title" name="title" placeholder="title" value="{{ books.title }}">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_title" class="control-label col-sm-2 ">Quantity</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="number" id="id_quantity" name="quantity" placeholder="quantity" value="{{ books.quantity }}">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_title" class="control-label col-sm-2 ">Published Date</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="date" id="id_date" name="published_date"
+                                         placeholder="published_date" value="{{ books.published_date |  date:'Y-m-d'}}">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_title" class="control-label col-sm-2 ">Genre</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="genre" name="genre" placeholder="genre" value="{{ books.genre }}">
+
+                </div>
+            </div>
+
+
+            {#    {{ form.as_p}}#}
+
+            <div class="form-group">
+                <button type="submit" class="btn login-btn">Update</button>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+
+</body>
+</html>

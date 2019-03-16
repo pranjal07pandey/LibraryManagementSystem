@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Books</title>
+</head>
+<body>
+
+<a href="{% url 'add_books' %}">Add New book</a>
+
+<table class="table table-responsive" border="1px" bgcolor="#7fffd4">
+    <thead>
+    <tr>
+        <th>Book Id</th>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Published Date</th>
+        <th>Genre</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    {% for list_books in books %}
+
+        <tbody>
+        <tr>
+            <td>{{ list_books.b_id }}</td>
+            <td>{{ list_books.author }}</td>
+            <td>{{ list_books.title }}</td>
+            <td>{{ list_books.quantity }}</td>
+            <td>{{ list_books.published_date }}</td>
+            <td>{{ list_books.genre }}</td>
+            <td>
+                <a href="{% url 'update_books' list_books.b_id %}">edit</a>
+            </td>
+            <td>
+                <a href="{% url 'delete_books' list_books.b_id %}" onclick="return confirm('Are you sure?')">delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    {% endfor %}
+</table>
+
+</body>
+</html>
