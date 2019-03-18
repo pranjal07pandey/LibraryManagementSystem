@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Students</title>
+</head>
+<body>
+
+<a href="{% url 'add_students' %}">Add New Students</a>
+
+<table class="table table-responsive" border="1px" bgcolor="#7fffd4">
+    <thead>
+    <tr>
+        <th>Student Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact No</th>
+        <th>Date of Birth</th>
+        <th>Roll number</th>
+        <th>Guardian Name</th>
+        <th>Batch</th>
+        <th>Grade</th>
+        <th>Section</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+    </thead>
+
+    {% for list_students in students %}
+
+        <tbody>
+        <tr>
+            <td>{{ list_students.s_id }}</td>
+            <td>{{ list_students.name }}</td>
+            <td>{{ list_students.address }}</td>
+            <td>{{ list_students.contactNo }}</td>
+            <td>{{ list_students.dateOfBirth }}</td>
+            <td>{{ list_students.rollNumber }}</td>
+            <td>{{ list_students.guardianName }}</td>
+            <td>{{ list_students.batch }}</td>
+            <td>{{ list_students.grade }}</td>
+            <td>{{ list_students.section }}</td>
+            <td>{{ list_students.gender }}</td>
+            <td>{{ list_students.email }}</td>
+
+            <td>
+                <a href="{% url 'update_students' list_students.s_id %}">edit</a>
+            </td>
+
+            <td>
+                <a href="{% url 'delete_students' list_students.s_id %}" onclick="return confirm('Are you sure?')">delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    {% endfor %}
+</table>
+
+</body>
+</html>

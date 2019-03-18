@@ -12,8 +12,6 @@
     <form method="POST">
         <div class="container">
             {% csrf_token %}
-            {#                fields = ('author', 'title', 'quantity', 'published_date', 'genre')#}
-
 
             <div class="form-group">
                 <label for="id_title" class="control-label col-sm-2 ">Book Id</label>
@@ -63,9 +61,6 @@
 
                 </div>
             </div>
-
-
-            {#    {{ form.as_p}}#}
 
             <div class="form-group">
                 <button type="submit" class="btn login-btn">Add</button>

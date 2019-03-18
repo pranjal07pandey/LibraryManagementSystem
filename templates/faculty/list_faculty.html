@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Books</title>
+</head>
+<body>
+
+<a href="{% url 'add_faculty' %}">Add New Faculty</a>
+
+<table class="table table-responsive" border="1px" bgcolor="#7fffd4">
+    <thead>
+    <tr>
+        <th>Faculty Id</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Designation</th>
+        <th>Subject</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    {% for list_faculty in faculty %}
+
+        <tbody>
+        <tr>
+            <td>{{ list_faculty.f_id }}</td>
+            <td>{{ list_faculty.name }}</td>
+            <td>{{ list_faculty.contact }}</td>
+            <td>{{ list_faculty.address }}</td>
+            <td>{{ list_faculty.email }}</td>
+            <td>{{ list_faculty.designation }}</td>
+            <td>{{ list_faculty.subject }}</td>
+
+
+            <td>
+                <a href="{% url 'update_faculty' list_faculty.f_id %}">edit</a>
+            </td>
+            <td>
+                <a href="{% url 'delete_faculty' list_faculty.f_id %}" onclick="return confirm('Are you sure?')">delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    {% endfor %}
+</table>
+
+</body>
+</html>

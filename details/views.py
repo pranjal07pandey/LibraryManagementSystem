@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 
 from .models import BookDetail
 from .forms import NewBookForm
@@ -8,6 +8,8 @@ from .forms import NewBookForm
 def index(request):
     return render(request,'index.html')
 
+
+# Crud for Books Starts:
 
 def list_books(request):
     books = BookDetail.objects.all()
@@ -40,11 +42,7 @@ def delete_books(request, b_id):
     books.delete()
     return redirect('list_books')
 
-
-
-
-
-
+# Crud for books ends
 
 
 

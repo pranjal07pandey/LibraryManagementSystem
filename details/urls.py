@@ -20,12 +20,12 @@ from .import views
 
 urlpatterns = [
 
-    path('list/', views.list_books, name='list_books'),
+    path('', views.index, name='index'),
+
+    path('list-book/', views.list_books, name='list_books'),
     path('add-book/', views.add_books, name='add_books'),
     path('update-book/<str:b_id>/', views.update_books, name='update_books'),
     path('delete-book/<str:b_id>/', views.delete_books, name='delete_books'),
-
-    path('', views.index, name='index')
 
 
 ]

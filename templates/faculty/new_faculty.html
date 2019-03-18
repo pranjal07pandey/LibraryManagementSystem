@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Faculty</title>
+</head>
+<body>
+
+
+<div class="section-wrapper form-bg">
+
+    <form method="POST">
+        <div class="container">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_f_id" class="control-label col-sm-2 ">Faculty Id</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_f_id" name="f_id" placeholder="faculty id">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_name" class="control-label col-sm-2 ">Name</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_name" name="name" placeholder="name">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_contact" class="control-label col-sm-2 ">Contact No</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_contact" name="contact" placeholder="Contact no">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_address" class="control-label col-sm-2 ">Address</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_address" name="address" placeholder="Address">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_email" class="control-label col-sm-2 ">Email</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="email" id="id_email" name="email"
+                                         placeholder="email">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_designation" class="control-label col-sm-2 ">Designation</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_designation" name="designation" placeholder="designation">
+
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label for="id_subject" class="control-label col-sm-2 ">Subject</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_subject" name="subject" placeholder="subject">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn login-btn">Add</button>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+
+</body>
+</html>
