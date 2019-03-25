@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Issue</title>
+</head>
+<body>
+
+<a href="{% url 'book_issue' %}">Issue a Book</a>
+
+<table class="table table-responsive" border="1px" bgcolor="#7fffd4">
+    <thead>
+    <tr>
+        <th>Student ID</th>
+        <th>Book ID</th>
+        <th>Start Date</th>
+        <th>Return Date</th>
+        <th>Return Book</th>
+
+
+
+    </tr>
+    </thead>
+
+    {% for issue_book in issued %}
+
+        <tbody>
+        <tr>
+            <td>{{ issue_book.s_id }}</td>
+            <td>{{ issue_book.b_id }}</td>
+            <td>{{ issue_book.startDate }}</td>
+            <td>{{ issue_book.endDate }}</td>
+
+
+            <td>
+                <a href="{% url 'book_return'  issue_book.id %}">return</a>
+
+            </td>
+
+        </tr>
+        </tbody>
+
+    {% endfor %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+<h1 align="center">Register a Librarian</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <div class="form-group">
+  <button type="submit" class="btn login-btn">Register</button>
+    </div>
+
+</form>
+
+</body>
+</html>

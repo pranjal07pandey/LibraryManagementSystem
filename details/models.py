@@ -12,5 +12,5 @@ class BookDetail(models.Model):
     genre = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.title
+        return self.b_id
 

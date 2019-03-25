@@ -1,32 +1,152 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>index</title>#}
+{#</head>#}
+{#<body>#}
+{##}
+{#<h1 align="center">Welcome to library management system</h1>#}
+{##}
+{#<ul>#}
+{#    <li>#}
+{#        <a href="{% url 'list_books' %}">List books</a>#}
+{#    </li>#}
+{#    <li>#}
+{#        <a href="{% url 'add_books' %}">Add New book</a>#}
+{#    </li>#}
+{#    <li>#}
+{#        <a href="{% url 'list_students' %}">List Students</a>#}
+{#    </li>#}
+{#    <li>#}
+{#        <a href="{% url 'add_students' %}">Add Student</a>#}
+{#    </li>#}
+{##}
+{#    <li>#}
+{#        <a href="{% url 'list_faculty' %}">List Faculties</a>#}
+{#    </li>#}
+{##}
+{#    <li>#}
+{#        <a href="{% url 'add_faculty' %}">Add Faculty</a>#}
+{#    </li>#}
+{##}
+{#    <li>#}
+{#        <a href="#">issue a book</a>#}
+{#    </li>#}
+{##}
+{#</ul>#}
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>index</title>
+
+    <title>Index</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
 
 <h1 align="center">Welcome to library management system</h1>
 
-<ul>
-   <li>
-<a href="{% url 'list_books' %}">List books</a>
-   </li>
-    <li>
-<a href="{% url 'add_books' %}">Add New books</a>
-    </li>
-    <li>
-<a href="{% url 'list_students' %}">List Students</a>
-    </li>
 
-    <li>
-    <a href="#">issue a book</a>
-    </li>
+{#<div class="col-md-8">#}
+{##}
+{#    {% if messages %}#}
+{##}
+{#        {% for message in messages %}#}
+{##}
+{#            <div class="alert alert-{{ message.tags }}">#}
+{##}
+{#            {{ message }}#}
+{##}
+{#            </div>#}
+{##}
+{#        {% endfor %}#}
+{##}
+{#    {% endif %}#}
+{##}
+{#</div>#}
 
-     <li>
-    <a href="{% url 'list_faculty' %}">List Faculties</a>
-    </li>
-</ul>
+<nav class="navbar navbar-default">
+
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#"><b>Library Management System</b></a>
+
+        </div>
+
+        <ul class="nav navbar-nav">
+            {% if user.is_authenticated %}
+
+                <li>
+                    <a href="{% url 'list_books' %}">List books</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'add_books' %}">Add New book</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'list_students' %}">List Students</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'add_students' %}">Add Student</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'list_faculty' %}">List Faculties</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'add_faculty' %}">Add Faculty</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'list_issued_books' %}">List Issued Books</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'book_issue' %}">Issue a Book</a>
+                </li>
+                <li>
+                    <a href="{% url 'register' %}">Add librarian</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+
+            {% endif %}
+
+
+        </ul>
+
+    </div>
+
+</nav>
 
 </body>
+
 </html>
+
+​
+
+
+{##}
+{#</body>#}
+{#</html>#}

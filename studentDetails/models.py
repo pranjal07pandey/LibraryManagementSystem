@@ -1,5 +1,5 @@
 from django.db import models
-
+from details.models import BookDetail
 # Create your models here.
 
 
@@ -18,5 +18,20 @@ class StudentsDetail(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return self.name
+        return self.s_id
 
+
+class BookIssue(models.Model):
+    s_id = models.ForeignKey(StudentsDetail, on_delete=models.CASCADE)
+    b_id = models.ForeignKey(BookDetail, on_delete=models.CASCADE)
+    startDate = models.DateField()
+    endDate = models.DateField(null=True, blank=True)
+
+    #
+    # def __str__(self):
+    #     return self.b_id
+
+
+
+
+# class BookReturn(models.Model):

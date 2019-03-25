@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Issue</title>
+</head>
+<body>
+
+<a href="{% url 'list_issued_books' %}">List Issued Books</a>
+
+
+<div class="section-wrapper form-bg">
+
+    <form method="POST">
+        <div class="container">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_s_id" class="control-label col-sm-2 ">Student Id</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_s_id" name="s_id" placeholder="student id" value="{{ book.s_id }}">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_b_id" class="control-label col-sm-2 ">Book Id</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="text" id="id_b_id" name="b_id" placeholder="book id" value="{{ book.b_id }}">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_startDate" class="control-label col-sm-2 ">Start Date</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="date" id="id_startDate" name="startDate" placeholder="start Date"
+                           value="{{ book.startDate | date:'Y-m-d'}}">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="id_endDate" class="control-label col-sm-2 ">End Date</label>
+                <div class="col-sm-4 no-outline">
+                    <input type="date" id="id_endDate" name="endDate" placeholder="end Date">
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn login-btn">return</button>
+            </div>
+        </div>
+
+
+    </form>
+
+</div>
+
+</body>
+</html>
