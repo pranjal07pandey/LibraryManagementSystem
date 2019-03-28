@@ -6,6 +6,12 @@
 </head>
 <body>
 
+{% if diff %}
+    <script>alert("Total fine is Rs: "+{{ fine }})</script>
+{#    {% elif diff %}#}
+{#    <script>alert("Total fine is Rs 0 ")</script>#}
+{% endif %}
+
 <a href="{% url 'book_issue' %}">Issue a Book</a>
 
 <table class="table table-responsive" border="1px" bgcolor="#7fffd4">
@@ -13,9 +19,11 @@
     <tr>
         <th>Student ID</th>
         <th>Book ID</th>
-        <th>Start Date</th>
+        <th>Issued Date</th>
         <th>Return Date</th>
         <th>Return Book</th>
+        <th>Time Elapsed</th>
+{#        <th>Fine Amount (In Rs)</th>#}
 
 
 
@@ -31,16 +39,25 @@
             <td>{{ issue_book.startDate }}</td>
             <td>{{ issue_book.endDate }}</td>
 
-
             <td>
                 <a href="{% url 'book_return'  issue_book.id %}">return</a>
 
             </td>
+                        <td>{{ issue_book.startDate|timesince:issue_book.endDate }}</td>
+{#<td>{{ diff }}</td>#}
+
 
         </tr>
         </tbody>
 
     {% endfor %}
+{# <td>#}
+{#            {% if diff %}#}
+{##}
+{#                {{ fine }}#}
+{##}
+{#            {% endif %}#}
+{#            </td>#}
 </table>
 
 </body>

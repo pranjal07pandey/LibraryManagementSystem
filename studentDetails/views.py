@@ -50,6 +50,8 @@ def delete_students(request, s_id):
 @login_required(login_url='login')
 def list_issued_books(request):
     issued = BookIssue.objects.all()
+    # start = BookIssue.objects.values_list('startDate')
+    # end = BookIssue.objects.values_list('endDate')
     return render(request, 'books/list_issuedBooks.html', context={'issued': issued})
 
 
@@ -66,19 +68,35 @@ def book_issue(request):
 
 def book_return(request, id):
     book = BookIssue.objects.get(id = id)
-    form = BookIssueForm(request.POST, request.FILES or None, instance=book)
+    # form = BookIssueForm(request.POST, request.FILES or None, instance=book)
+    book.endDate = datetime.date.today()
 
-    if form.is_valid():
+    diff = book.endDate.day - book.startDate.day
+    print(diff)
 
+    book.save()
 
-        form.save()
-        ed = form.cleaned_data['endDate'].today()
-        # ed.datetime.date.today()
+    if diff > 15:
+        fine = (diff - 15) * 2
+        # return render(request, 'books/list_issuedBooks.html', {'fine':fine})
+
         issued = BookIssue.objects.all()
-        return render(request, 'books/list_issuedBooks.html', context={'issued': issued, 'ed':ed})
+        return render(request, 'books/list_issuedBooks.html', context={'issued': issued, 'diff': diff, 'fine':fine})
 
-        # return redirect('list_issued_books')
-    return render(request, 'books/book_return.html',{'form':form, 'book':book})
+    return redirect('list_issued_books')
+    # return render(request, 'books/book_return.html',{'form':form, 'book':book})
+
+
+#
+# def fine_calculate(request):
+#     fine = BookIssue.objects.get('endDate')
+#
+#     if fine >
+
+
+
+
+
 
 
 
